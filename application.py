@@ -17,16 +17,11 @@ class MainWindow(QWidget):
         labelList = []
         buttonList = []
 
-        # x, y = 10, 10
-
         for elem in self.data:
             labelList.append(QLabel())
             button = QPushButton(f'{elem["first_name"]} {elem["last_name"]} id: {elem["id"]}', self)
             button.clicked.connect(self.get_info)
             buttonList.append(button)
-            # button.resize(250, 20)
-            # button.move(x, y)
-            # y += 30
             formLayout.addRow(QLabel(), button)
 
         groupBox.setLayout(formLayout)
@@ -45,7 +40,6 @@ class MainWindow(QWidget):
         id = sender.text().split()[3]
         for elem in data:
             if str(elem['id']) == id:
-                person = elem
                 self.infowindow = InfoWindow(elem)
                 self.infowindow.show()
 
