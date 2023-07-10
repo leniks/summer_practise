@@ -1,28 +1,52 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QScrollArea, QFormLayout, QGroupBox, QLabel, QVBoxLayout
 import json
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self, data):
         super().__init__()
         self.data = data
+        self.resize(400, 800)
 
-        x, y = 10, 10
+        formLayout = QFormLayout()
+        groupBox = QGroupBox()
+
+        labelList = []
+        buttonList = []
+
+        # x, y = 10, 10
+
         for elem in self.data:
+            labelList.append(QLabel())
             button = QPushButton(f'{elem["first_name"]} {elem["last_name"]} id: {elem["id"]}', self)
-            button.resize(250, 20)
-            button.move(x, y)
-            y += 30
             button.clicked.connect(self.get_info)
+            buttonList.append(button)
+            # button.resize(250, 20)
+            # button.move(x, y)
+            # y += 30
+            formLayout.addRow(QLabel(), button)
+
+        groupBox.setLayout(formLayout)
+        scroll = QScrollArea()
+        scroll.setWidget(groupBox)
+        scroll.setWidgetResizable(True)
+        scroll.setFixedHeight(800)
+
+        layout = QVBoxLayout()
+        layout.addWidget(scroll)
+
+        self.setLayout(layout)
+
 
     def get_info(self):
         sender = self.sender()
         id = sender.text().split()[3]
         for elem in data:
             if str(elem['id']) == id:
-                print(elem)
+                person = elem
+                print(person)
 
 
 app = QApplication(sys.argv)
