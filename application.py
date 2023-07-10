@@ -10,7 +10,7 @@ class MainWindow(QMainWindow):
 
         self.button_is_checked = True
 
-        self.setWindowTitle("My App")
+        self.setWindowTitle("Fiends list")
 
         button = QPushButton("Press Me!")
         button.setCheckable(True)

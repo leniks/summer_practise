@@ -1,6 +1,7 @@
 import requests
 from acc_token import token
 import pprint
+import  json
 
 api_ver = 5.131
 user_id = 380060730
@@ -15,3 +16,6 @@ data = requests.get('https://api.vk.com/method/friends.get', params={
                                       'relation, sex, status, universities'
                         }).json()['response']['items']
 pprint.pprint(data)
+
+with open('data.json', 'w') as f:
+    json.dump(data, f)
