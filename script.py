@@ -1,7 +1,11 @@
+from vk_token import acc_token
+
+api_version = '5.131'
+domain = ''
 import requests
 from acc_token import token
 import pprint
-import  json
+import json
 
 api_ver = 5.131
 user_id = 380060730

@@ -1,33 +1,36 @@
 import sys
 
-from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
+import json
 
 
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, data):
         super().__init__()
+        self.data = data
 
-        self.button_is_checked = True
+        x, y = 10, 10
+        for elem in self.data:
+            button = QPushButton(f'{elem["first_name"]} {elem["last_name"]} id: {elem["id"]}', self)
+            button.resize(250, 20)
+            button.move(x, y)
+            y += 30
+            button.clicked.connect(self.get_info)
 
-        self.setWindowTitle("Fiends list")
-
-        button = QPushButton("Press Me!")
-        button.setCheckable(True)
-        button.clicked.connect(self.the_button_was_toggled)
-        button.setChecked(self.button_is_checked)
-
-        self.setCentralWidget(button)
-
-    def the_button_was_toggled(self, checked):
-        self.button_is_checked = checked
-
-        print(self.button_is_checked)
+    def get_info(self):
+        sender = self.sender()
+        id = sender.text().split()[3]
+        for elem in data:
+            if str(elem['id']) == id:
+                print(elem)
 
 
 app = QApplication(sys.argv)
 
-window = MainWindow()
+with open('data.json') as json_file:
+    data = json.load(json_file)
+
+window = MainWindow(data)
 window.show()
 
 app.exec()
