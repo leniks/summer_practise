@@ -60,7 +60,7 @@ class InfoWindow(QMainWindow):
             self.textbox.setText(self.textbox.text() + f'{string}: {elem[string]}\n')
 
 
-call(380060730)
+call(0, 380060730)
 app = QApplication(sys.argv)
 
 with open('data.json') as json_file:
