@@ -18,7 +18,7 @@ def call(acc_token, id):
                                           'country, domain, education, timezone, has_mobile, last_seen, nickname, online,'
                                           'relation, sex, status, universities'
                             }).json()['response']['items']
-    pprint.pprint(data)
+
 
     with open('data.json', 'w') as f:
         json.dump(data, f)
