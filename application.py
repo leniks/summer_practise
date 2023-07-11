@@ -61,7 +61,8 @@ class InfoWindow(QMainWindow):
 
 
 call(
-    '',
+    'vk1.a.imeL2B3PdP8N6mxeST2BO_0mRFcz0_kkpdRsQ_pN4i1YYE0Fv7jsLMvjsPFSzEfmHvxJtKPeFhwgk8MaRIhBb4clwTD1ZJEyAibi7bxerT67'
+    'KugxcBuRLYlb80X-dsfB2bsoOmZnJKI0QUtbFdFsP13AisvQ42G2eGWj2Ba84VFdY5grW3FQBv_422V45acpk7nm4FrlFDtwDqyeStfxHw',
     '')
 # 380060730
 # 351168531
