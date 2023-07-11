@@ -50,10 +50,13 @@ class InfoWindow(QMainWindow):
         self.data = data
         self.resize(400, 400)
 
-        self.textbox = QLineEdit()
+        self.textbox = QLabel()
         self.setCentralWidget(self.textbox)
 
-        self.textbox.setText(str(elem['id']))
+        for string in elem:
+            # print(string, end=': ')
+            # print(elem[string])
+            self.textbox.setText(self.textbox.text() + f'{string}: {elem[string]}\n')
 
 
 app = QApplication(sys.argv)
